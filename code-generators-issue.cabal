@@ -1,0 +1,33 @@
+cabal-version:      3.8
+name:               code-generators-issue
+version:            0.1
+-- synopsis:
+-- description:
+license:            BSD-3-Clause
+license-file:       LICENSE
+author:             Ryan Scott
+maintainer:         ryan.gl.scott@gmail.com
+-- copyright:
+category:           Testing
+build-type:         Simple
+-- extra-doc-files:    CHANGELOG.md
+-- extra-source-files:
+
+executable codegen-same-package
+    hs-source-dirs:     codegen-same-package
+    main-is:            CodegenSamePackage.hs
+    ghc-options:        -Wall
+    default-language:   Haskell2010
+    build-depends:      base >= 4 && < 5
+
+test-suite code-generators-issue-test
+    type:               exitcode-stdio-1.0
+    hs-source-dirs:     test
+    main-is:            Test.hs
+    ghc-options:        -Wall
+    default-language:   Haskell2010
+    build-depends:      base >= 4 && < 5
+    build-tool-depends: codegen-different-package:codegen-different-package
+    code-generators:    codegen-different-package
+    -- build-tool-depends: code-generators-issue:codegen-same-package
+    -- code-generators:    codegen-same-package
