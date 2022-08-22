@@ -1,6 +1,6 @@
 module Main (main) where
 
-import GeneratedModule
+import GeneratedFile
 
 main :: IO ()
-main = putStrLn generatedString
+main = putStrLn generatedStr

@@ -13,12 +13,12 @@ build-type:         Simple
 -- extra-doc-files:    CHANGELOG.md
 -- extra-source-files:
 
-executable codegen-same-package
+executable codegen-same-package-exe
     hs-source-dirs:     codegen-same-package
     main-is:            CodegenSamePackage.hs
     ghc-options:        -Wall
     default-language:   Haskell2010
-    build-depends:      base >= 4 && < 5
+    build-depends:      base >= 4 && < 5, filepath
 
 test-suite code-generators-issue-test
     type:               exitcode-stdio-1.0
@@ -27,7 +27,7 @@ test-suite code-generators-issue-test
     ghc-options:        -Wall
     default-language:   Haskell2010
     build-depends:      base >= 4 && < 5
-    build-tool-depends: codegen-different-package:codegen-different-package
-    code-generators:    codegen-different-package
-    -- build-tool-depends: code-generators-issue:codegen-same-package
-    -- code-generators:    codegen-same-package
+    build-tool-depends: codegen-different-package:codegen-different-package-exe
+    code-generators:    codegen-different-package-exe
+    -- build-tool-depends: code-generators-issue:codegen-same-package-exe
+    -- code-generators:    codegen-same-package-exe
